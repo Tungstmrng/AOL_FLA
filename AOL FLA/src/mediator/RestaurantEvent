@@ -1,0 +1,17 @@
+package mediator;
+
+public enum RestaurantEvent {
+    ORDER_TAKEN("Order has been taken"),
+    ORDER_READY("Order is ready"),
+    PAYMENT_COMPLETE("Payment completed");
+
+    private final String message;
+
+    RestaurantEvent(String message) {
+        this.message = message;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+}

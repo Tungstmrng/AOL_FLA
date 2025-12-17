@@ -1,0 +1,30 @@
+package mediator;
+
+public class OrderComponent extends RestaurantComponent {
+
+    private int orderId;
+
+    public OrderComponent(RestaurantMediator mediator, int orderId) {
+        super(mediator);
+        this.orderId = orderId;
+    }
+
+    public int getOrderId() {
+        return orderId;
+    }
+
+    public void takeOrder() {
+        System.out.println("OrderComponent: Order taken with ID " + orderId);
+        mediator.notify(this, RestaurantEvent.ORDER_TAKEN);
+    }
+
+    public void markOrderReady() {
+        System.out.println("OrderComponent: Order is ready");
+        mediator.notify(this, RestaurantEvent.ORDER_READY);
+    }
+
+    public void completePayment() {
+        System.out.println("OrderComponent: Payment completed");
+        mediator.notify(this, RestaurantEvent.PAYMENT_COMPLETE);
+    }
+}
